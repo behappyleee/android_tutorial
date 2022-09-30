@@ -12,7 +12,9 @@ import android.view.MenuItem
 import com.example.tutorial.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
+    // MainActivity는 처음 앱의 진입점 (기본 활동)
+    // Activity 인스턴스를 실행하고 레이아웃을 로드
+    // 코틀린의 가장 혁신적인 기능은 Optional (자바에서는 NotNull / Nullable)
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 

@@ -3,7 +3,7 @@ package com.example.android_tutorial.tutorial
 fun main() {
 
     // 조건식
-
+    checkNum(1);
 }
 
 fun compare(a  : Int, b : Int): Int {
@@ -33,17 +33,53 @@ fun checkNum(score: Int) {
         else -> 3
     }
 
+    println("b : ${b}");
+
     when(score) {
         in 90 .. 100 -> println("You are genius")
         in 10.. 80 -> println("You bad!")
         else -> println("okay")
     }
-
-
-
 }
 
+// Expression vs Statement
+// Expression -> 어떤 값을 만들면 표현식 (Expression)
+// ex) when 같은 것은 값을 만드는 것은 아니므로 statement 임
+// 코틀린에 모든 함수는 Expression 임 (모든 함수는 Unit 을리턴 하므로 (리턴값이 없을 경우에)
+// 코틀린은 리턴값이 없을 때 는 Unit 을 반환, kotlin 은 expression 및 statement 로 사용이 가능
 
+// Java 같은 경우는 void 가 있으므로 리턴 값이 없는 것은 statement 임
 
+// Statement -> 이렇게 명령하는 문장 같은 성격
 
+// Array vs List (Array 는 정해진 사이즈가 있음, List 는 정해진 크기가 없음)
 
+// Array
+
+// List 1 Immutable (수정이 불가능한 리스트) , List 2, MutableList (수정이 가능한 리스트)
+
+fun array() {
+    val array :Array<Int> = arrayOf(1,2,3);
+    val list : List<Int> = listOf(1,2,3);
+
+    // 타입이 섞여있을 때 에는 Any 로 타입 넣어 줌
+    val array2 : Array<Any> = arrayOf(1, "3", 3.16);
+    val list2 : List<Any> = listOf(1,"d", 11);
+
+    array[0] = 3;   // 값을 바꾸는 것은 가능
+    // list[2] = 7;    // 리스트는 값을 바꾸지 못 함
+    // list.add(9);    // List 는 Interface 이므로 값을 추가하지 못함 ArrayList 사용
+    
+    // List 는 인터페이스임 값을 가져올 수 는 있음
+    var result : Int = list.get(0);
+    
+    // MutableList 만 값을 바꾸는 것이 가능
+    // 주소 값은 바뀌지 않으므로 val 로 선언을 하였지만 값 추가 및 변경이 가능
+    val arrayList : ArrayList<Int> = arrayListOf(1,2,3);
+    arrayList.add(10);
+
+    // 재 선언은 주소값이 바뀌므로 재 선언은 불가
+    // arrayList = arrayListOf(7,8,9);
+    
+    
+}

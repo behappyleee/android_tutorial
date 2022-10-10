@@ -25,6 +25,22 @@ fun checkNum(score: Int) {
         2,3 -> println("this is 2 or 3");       // 복수 정답도 인정 이 됨
         else -> println("this is else !!!");    // 아무것도 만족하지 않을 시 else 를 사용
     }
+
+    // expression 사용시 꼭 else 를 작성을 해주어야 함
+    var b : Int = when(score) {
+        1 -> 1
+        2 -> 2
+        else -> 3
+    }
+
+    when(score) {
+        in 90 .. 100 -> println("You are genius")
+        in 10.. 80 -> println("You bad!")
+        else -> println("okay")
+    }
+
+
+
 }
 
 

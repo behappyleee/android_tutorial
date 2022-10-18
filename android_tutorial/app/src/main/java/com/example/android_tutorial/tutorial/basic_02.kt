@@ -116,7 +116,7 @@ fun nullCheck() {
     // NPE : Null Pointer Exception
     // 이러면 기본적으로 NonNull Type 임
     var name : String = "joyce";
-    
+    //  name = null; name 은 Nullable 타입이 아니므로 null 대입시 에러가 발생
     // Error 발생 NonNull Type 에 null 대입
     // var nullableName :String = null;
     
@@ -126,16 +126,35 @@ fun nullCheck() {
     var nameInUpperCase = name.toUpperCase();
 
     // Err 발생 왜냐면 nullableName 이 널인지 아닌 지 몰라서 API 사용이 불가
-    var nullNameInUpperCase = nullableName.toUpperCase();
+    // var nullNameInUpperCase = nullableName.toUpperCase();
 
     // 물음표를 추가할 시 해당에러 해결이 가능
     var nullNameInUpperCase2 = nullableName?.toUpperCase();
 
-    
+    // 엘비스 프레슬리 (90도 회전 시 엘비스 프레슬리 머리스타일이랑 비슷) 연산자 ?:
+    // ?: 사용은 default 값을 주고 싶을시에 사용
+    val lastName : String? = null;
 
+    // lastName 이 Nullable 타입 이므로 null 일 시에 기본값으로 No LastName 으로 값을 줌
+    val fullName = name + " " + (lastName?: "No LastName");
+
+    println("FULLNAME : " + fullName);
 }
 
+// !! 이것은 NULL 이 아니라는 것을 보장시에 사용
+fun ignoreNulls(str : String?) {
+    // 만약 변수가 nullable 이 지만 절대 Null 이 아닐시에 !! 두개를 사용 (Null 이 절대 아니므로 그냥 무시하라는 의미)
+    val notNull : String = str!!;
+    // !! 사용은 최대한 지양
+    val upper : String = notNull.toUpperCase();
 
+    val email : String? = "joycehongXXX@naver.com";
+    // email 이 ? 아니면 아래 let 구문을 수행 (굉장히 safe 함)
+    email?.let {
+        // let 은 람다식을 옮겨서 사용
+        println("My Email is ${email}");
+    }
+}
 
 
 

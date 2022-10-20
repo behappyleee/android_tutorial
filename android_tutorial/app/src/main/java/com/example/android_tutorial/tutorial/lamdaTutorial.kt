@@ -61,8 +61,11 @@ fun main () {
 
     // parameter 가 마지막에 존재 시 소괄호를 생략을 가능
     invokeLamda{ it > 3.52 };
-
 }
+
+// POJO (Plain Object Java Object) Class
+
+
 
 
 

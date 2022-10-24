@@ -19,6 +19,8 @@ fun main() {
     val carA :Car = CarFactory.makeCar(10);
     val carB :Car = CarFactory.makeCar(200);
 
-    println();
-    println();
+    println(carA);
+    println(carB);
+
+    println(CarFactory.cars.size.toString());
 }

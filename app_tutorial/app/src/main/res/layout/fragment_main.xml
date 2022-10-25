@@ -8,6 +8,7 @@
     tools:context=".fragment.MainFragment">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="299dp"
         android:layout_height="74dp"
         android:layout_marginTop="132dp"
@@ -20,22 +21,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="310dp"
         android:layout_height="318dp"
         android:src="@drawable/main_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="241dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:layout_width="124dp"
         android:layout_height="68dp"
+        android:layout_marginTop="318dp"
         android:src="@drawable/next"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="587dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

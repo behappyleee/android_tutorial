@@ -28,8 +28,11 @@ class MainFragment : Fragment() {
         // Navigation Bar 를 찾음
         navController = Navigation.findNavController(view);
 
-        // TODO btn_next 버튼 Action 설정 하기 !!!!!!
-        // btn_next.
+        // 이 해당 버튼이 클릭을 하였을 떄 Action 을 정의할 수 있음
+        btn_next.setOnClickListener {
+            // 버튼을 클릭 하였을 떄 다음 페이지로 이동하게 됨
+            navController.navigate(R.id.action_mainFragment_to_questionFragment)
+        }
 
     }
 

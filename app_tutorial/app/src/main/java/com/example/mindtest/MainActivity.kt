@@ -22,10 +22,6 @@ class MainActivity : AppCompatActivity() {
         
         // kotlin 은 findViewId 를 사용할 필요가 없읍
         navController = nav_host_fragment.findNavController();
-        
-        
-        
-        
-        
+
     }
 }

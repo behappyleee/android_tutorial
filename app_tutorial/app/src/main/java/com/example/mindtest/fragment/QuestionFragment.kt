@@ -11,7 +11,8 @@ import com.example.mindtest.R
 import kotlinx.android.synthetic.main.fragment_question.*
 
 
-class QuestionFragment : Fragment() {
+// View.OnClickListener 인터페이스를 상속 함
+class QuestionFragment : Fragment(), View.OnClickListener {
 
     lateinit var navController : NavController;
 
@@ -26,9 +27,18 @@ class QuestionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO 43 분 40 초 ..
         navController = Navigation.findNavController(view);
 
+        // this 에 의미는 View.OnClickListener 에서 구현된 view 를 사용하겠다는 의미
+        btn_next.setOnClickListener(this);
+    }
 
+    // View.OnClickListener 인터페이스의 상속하여야 할 메서드임
+    override fun onClick(v : View?) {
+        when(v?.id) {
+            R.id.btn_next -> {
+                navController.navigate(R.id.action_questionFragment_to_selection);
+            }
+        }
     }
 }

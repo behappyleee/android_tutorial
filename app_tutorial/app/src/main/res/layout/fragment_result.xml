@@ -8,7 +8,7 @@
     tools:context=".fragment.ResultFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_main"
         android:layout_width="314dp"
         android:layout_height="95dp"
         android:fontFamily="sans-serif-black"
@@ -16,13 +16,13 @@
         android:textColor="@color/white"
         android:textSize="32dp"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/tv_sub"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/imageView"
+        android:id="@+id/tv_sub"
         android:layout_width="340dp"
         android:layout_height="296dp"
         android:fontFamily="sans-serif-light"
@@ -35,14 +35,14 @@
         app:layout_editor_absoluteY="383dp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/btn_home"
         android:layout_width="124dp"
         android:layout_height="68dp"
         android:src="@drawable/home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_sub" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

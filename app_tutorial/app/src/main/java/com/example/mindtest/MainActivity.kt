@@ -16,12 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // TODO 강의 37:38 에
-        // TODO navController 정의가 안됨 nav_host_fragment 를 찾지 못함
-        // TODO navController = nav_host_fragment
-        
         // kotlin 은 findViewId 를 사용할 필요가 없읍
         navController = nav_host_fragment.findNavController();
-
     }
 }

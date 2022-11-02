@@ -47,8 +47,6 @@ fun hi() {
     // 만약 바로 할당해주지 않을 시 (꼭 타입을 명시를 해주어야 함)
     var e : String;
 
-
-
 }
 
 class KotlinGrammar {

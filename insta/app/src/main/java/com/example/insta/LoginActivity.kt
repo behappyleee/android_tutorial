@@ -8,4 +8,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
     }
+
+
+    // FireBase 연결 하기 햣 ㅊㅇ 
+
+
+
+
+
 }

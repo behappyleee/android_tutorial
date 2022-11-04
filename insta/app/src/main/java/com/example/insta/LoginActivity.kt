@@ -9,8 +9,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
-
-    // FireBase 연결 하기 햣 ㅊㅇ 
+    // FireBase 연결 Login System 구현을 위하여 Firebase 연결 함
 
 
 

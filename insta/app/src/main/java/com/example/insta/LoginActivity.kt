@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -44,20 +45,21 @@ class LoginActivity : AppCompatActivity() {
         startActivityForResult(siginInIntent, GOOGLE_LOGIN_CODE);
     }
 
-    override fun onActivitiyForResult(requestCode : Int, resultCode : Int, data : Intent?) {
+    override fun onActivityResult(requestCode : Int, resultCode : Int, data : Intent?) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GOOGLE_LOGIN_CODE) {
             var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data!!);
             if(result?.isSuccess == true) {
                 var account = result?.signInAccount;
-                // 두번 쨰 단계
-
+                // 두번 쨰 단계 Firebase 에 넘겨 줌 SNS 로그인을 위하여
+                firebaseAuthWithGoogle(account);
             }
         }
     }
-    // 강의 5:51 초 TODO 강의 이어 듣기 !!!!
-    fun firebaseAuthWithGoogle(account: GoogleSignInAccount? ) {
 
+    fun firebaseAuthWithGoogle(account: GoogleSignInAccount?) {
+        var credential = GoogleAuthProvider.getCredential(account?.idToken, null)
+        auth?.signInWithCredential(credential);
     }
 
     // FireBase 연결 Login System 구현을 위하여 Firebase 연결 함

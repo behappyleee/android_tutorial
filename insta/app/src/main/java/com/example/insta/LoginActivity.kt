@@ -1,9 +1,16 @@
 package com.example.insta
 
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
+
+import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -13,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
+import java.security.MessageDigest
+import java.util.Base64.getEncoder
 
 class LoginActivity : AppCompatActivity() {
 
@@ -38,6 +47,26 @@ class LoginActivity : AppCompatActivity() {
             .build();
 
         googleSiginInClient = GoogleSignIn.getClient(this, gso);
+
+        // Facebook Login
+
+    }
+
+    // Facebook Login
+    // TODO 강의 1:43 초 부터 !!
+    fun generateSSHKey(){
+        try {
+            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+            for (signature in info.signatures) {
+                val md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                val hashKey = String(Base64.getEncoder().encode(md.digest()))
+                Log.i("AppLog", "key:$hashKey=")
+            }
+        } catch (e: Exception) {
+            Log.e("AppLog", "error:", e)
+        }
+
     }
 
     fun googleLogin() {
